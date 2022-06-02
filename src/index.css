@@ -1,8 +1,8 @@
-/* CAIRO */
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&family=Lobster&display=swap');
+body{
+    margin:0;
+}
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
+button{
+    border-style: none;
+    background: none;
+}

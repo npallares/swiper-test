@@ -4,6 +4,7 @@ import { Navigation, Pagination, Lazy, Keyboard, Autoplay} from 'swiper';
 
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 
+import './Carousel.css'
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -20,7 +21,7 @@ export const Carousel = () => {
 
     
   return (
-    <div className='flex w-full h-[350px]'>
+    <div className='carousel-container'>
       <Swiper
           modules={[Navigation, Pagination, Keyboard, Autoplay, Lazy]}
           onInit={(swiper) => {
@@ -32,13 +33,13 @@ export const Carousel = () => {
           loop={true}
           slidesPerView={1}
           pagination={{ 
-            clickable: true,
-            modifierClass:'w-full relative bottom-5 left-0 flex justify-center items-center h-[30px]',
-            bulletClass: 'h-2 w-2 ml-4 bg-gray-800 rounded-full z-50',
-            bulletActiveClass:'bg-emerald-500 transition delay-100 ease-in-out opacity-100',
+            clickable: true,  
+            modifierClass:'modifier ',
+            bulletClass: 'bullet',
+            bulletActiveClass:'bullet-active',
           }}
           autoplay={{
-            delay:3000,
+            delay:999999999,
             disableOnInteraction:false,	
             pauseOnMouseEnter:true,
           }}
@@ -46,8 +47,8 @@ export const Carousel = () => {
       >
         {times(10)((_el,index)=><SwiperSlide key={index}><Slice index={index}/></SwiperSlide> )}
         
-        <div className='flex flex-row w-full absolute top-[130px] left-0 z-50 px-[10px]'>
-          <button ref={prevRef} className="cursor-pointer w-62 h-62  " onClick={() => swiper.slideNext()} >
+        <div className='div-button-container'>
+          <button ref={prevRef} className="button-next-prev" onClick={() => swiper.slideNext()} >
                 <img
                   src="arrowLeft.png"
                   height="62"
@@ -56,7 +57,7 @@ export const Carousel = () => {
                 /> 
           </button>
           <div className='grow'></div>
-          <button ref={nextRef} className="cursor-pointer w-[72px] h-62" onClick={() => swiper.slidePrev()} >
+          <button ref={nextRef} className="button-next-prev" onClick={() => swiper.slidePrev()} >
                 <img
                   src="arrowRight.png"
                   height="62"
