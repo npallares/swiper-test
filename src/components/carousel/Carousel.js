@@ -13,6 +13,8 @@ import { Slice } from './Slice';
 
 const times = (number) => (mapper) => Array(number).fill(0).map(mapper);
 
+console.log(times(10)((_el,index)=><SwiperSlide key={index}><Slice index={index}/></SwiperSlide> ))
+
 export const Carousel = () => {
 
   const swiper = useSwiper();
@@ -39,7 +41,7 @@ export const Carousel = () => {
             bulletActiveClass:'bullet-active',
           }}
           autoplay={{
-            delay:999999999,
+            delay:3000,
             disableOnInteraction:false,	
             pauseOnMouseEnter:true,
           }}
